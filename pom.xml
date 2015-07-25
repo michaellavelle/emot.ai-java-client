@@ -8,7 +8,7 @@
 	<name>emot.ai Java client</name>
 	<properties>
 		<org.springframework.social.version>1.1.0.RELEASE</org.springframework.social.version>
-		<org.ml4j.version>1.0.0-SNAPSHOT></org.ml4j.version>
+		<org.ml4j.version>1.0.0-SNAPSHOT</org.ml4j.version>
 	</properties>
 	<distributionManagement>
 	</distributionManagement>
