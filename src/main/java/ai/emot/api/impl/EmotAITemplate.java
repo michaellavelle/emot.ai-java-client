@@ -17,17 +17,16 @@ package ai.emot.api.impl;
 
 import java.util.List;
 
-import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.support.ClientHttpRequestFactorySelector;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import ai.emot.api.EmotAI;
 import ai.emot.api.EmotionOperations;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Michael Lavelle
@@ -54,7 +53,7 @@ public class EmotAITemplate extends AbstractOAuth2ApiBinding implements EmotAI {
 	protected List<HttpMessageConverter<?>> getMessageConverters() {
 		List<HttpMessageConverter<?>> messageConverters = super
 				.getMessageConverters();
-		messageConverters.add(new ByteArrayHttpMessageConverter());
+		messageConverters.add(new BufferedImageHttpMessageConverter());
 		return messageConverters;
 	}
 
@@ -68,6 +67,8 @@ public class EmotAITemplate extends AbstractOAuth2ApiBinding implements EmotAI {
 				getRestTemplate(), isAuthorized());
 
 	}
+	
+	
 
 	@Override
 	protected MappingJackson2HttpMessageConverter getJsonMessageConverter() {
